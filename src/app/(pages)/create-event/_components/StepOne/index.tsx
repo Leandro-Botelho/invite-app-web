@@ -12,14 +12,14 @@ const StepOne = ({ advanceStep }: IUpdateFormCreateEvent) => {
     <>
       <AppInput
         control={control}
-        name="alias"
+        name="identification.alias"
         description="Identificador único e exclusivo para o evento (usado na URL)"
         label="Identificador"
-        onChange={(e) => setValue("alias", formatAlias(e.target.value))}
+        onChange={(e) => setValue("identification.alias", formatAlias(e.target.value))}
       />
       <AppInput
         control={control}
-        name="name"
+        name="identification.name"
         description="Nome do evento (ex: Aniversário de 15 anos da Maria)"
         label="Nome"
       />

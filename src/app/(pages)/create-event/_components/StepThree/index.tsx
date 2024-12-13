@@ -1,5 +1,4 @@
 import AppInput from "@/app/shared/components/AppInput";
-import useStepThree, { IStepThree } from "./hooks/useStepThree";
 import { IUpdateFormCreateEvent } from "@/app/shared/types/IUpdateFormCreateEvent";
 import ButtonStepsContainer from "../ButtonsStepContainer";
 import ButtonSteps from "../ButtonsStepContainer/component/ButtonSteps";
@@ -12,27 +11,25 @@ const StepThree = ({ previousStep }: IUpdateFormCreateEvent) => {
     <>
       <AppInput
         control={control}
-        name="description"
+        name="information.description"
         description="Descrição do evento (ex: Trazer roupa de banho)"
         label="Descrição"
       />
       <AppInput
         control={control}
-        name="url_image"
+        name="information.url_image"
         description="URL da imagem que será exibida no convite"
         label="Imagem"
-        // onChange={(e) => setUrlImageEvent(e.target.value)}
       />
       <AppInput
         control={control}
-        name="background_image"
+        name="information.background_image"
         description="URL da imagem como imagem de fundo no convite"
         label="Background"
-        // onChange={(e) => setBackgroundImageEvent(e.target.value)}
       />
       <AppInput
         control={control}
-        name="public"
+        name="information.public"
         description="Quantidade de pessoas que você espera que compareçam"
         label="Publico esperado"
         type="number"

@@ -11,6 +11,7 @@ interface IAppInput<T extends FieldValues> {
   placeholder?: string;
   type?: string;
   value?: string;
+  maxLength?: number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -21,6 +22,7 @@ const AppInput = <T extends FieldValues>({
   label,
   placeholder,
   type = "text",
+  maxLength,
   onChange: onChangeEvent,
 }: IAppInput<T>) => {
   const preventOtherCharacters = (e: React.KeyboardEvent<HTMLInputElement>) =>
@@ -44,6 +46,7 @@ const AppInput = <T extends FieldValues>({
           <Input
             id="input"
             value={value ?? ""}
+            maxLength={maxLength}
             onChange={
               onChangeEvent
                 ? (e) => {
