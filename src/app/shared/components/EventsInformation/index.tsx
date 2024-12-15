@@ -11,10 +11,10 @@ const EventsInformation = ({
 }: IEventsInformation) => {
   return (
     <div
-      className={`border-[1px] rounded-md py-2 px-4 shadow-md border-[#27272a] ${className}`}
+      className={`border-[1px] w-full rounded-md py-2 px-4 shadow-md border-bd_primary ${className}`}
     >
-      <span className="text-[#9ba2ad] font-semibold">{title}:</span>
-      <p className="text-[#f7f4e6]">{description}</p>
+      <span className="text-primary font-semibold text-sm">{title}:</span>
+      <p className="text-white">{description}</p>
     </div>
   );
 };

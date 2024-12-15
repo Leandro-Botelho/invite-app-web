@@ -13,6 +13,11 @@ const customError: z.ZodErrorMap = (issue, ctx) => {
 
   if (issue.code === z.ZodIssueCode.invalid_type) {
     if (issue.received === "undefined") return { message: "Campo obrigatório" };
+    //validação de email
+  }
+
+  if (issue.code === z.ZodIssueCode.invalid_string) {
+    if (issue.validation === "email") return { message: "Email inválido" };
   }
 
   return { message: ctx.defaultError };

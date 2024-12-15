@@ -7,7 +7,7 @@ interface IAppInput<T extends FieldValues> {
   control: Control<T, any>;
   name: Path<T>;
   label: string;
-  description: string;
+  description?: string;
   placeholder?: string;
   type?: string;
   value?: string;
@@ -39,9 +39,11 @@ const AppInput = <T extends FieldValues>({
             className="flex flex-col text-white font-bold text-lg "
           >
             {label}
-            <span className=" font-normal text-sm text-primary">
-              {description}
-            </span>
+            {description && (
+              <span className=" font-normal text-sm text-primary">
+                {description}
+              </span>
+            )}
           </Label>
           <Input
             id="input"

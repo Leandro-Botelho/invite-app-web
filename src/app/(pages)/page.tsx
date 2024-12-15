@@ -13,11 +13,19 @@ export default function Home() {
           complicações
         </p>
 
-        <Link href="/create-event">
-          <Button className="mt-6 font-semibold bg-button hover:bg-btnHover text-white">
-            Crie seu próprio evento
-          </Button>
-        </Link>
+        <div className="flex gap-4 items-center">
+          <Link href="/create-event">
+            <Button className="mt-6 font-semibold bg-button hover:bg-btnHover text-white">
+              Crie seu próprio evento
+            </Button>
+          </Link>
+
+          <Link href="/auth">
+            <Button className="mt-6 font-semibold bg-[#23c55e] hover:bg-[#1c8843] text-white">
+              Gerencie seus eventos
+            </Button>
+          </Link>
+        </div>
       </div>
     </main>
   );

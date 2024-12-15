@@ -2,7 +2,7 @@ interface IBoxEventDetails {
   title: string;
   details: string;
   message?: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 const BoxEventDetails = ({
@@ -13,8 +13,8 @@ const BoxEventDetails = ({
 }: IBoxEventDetails) => {
   return (
     <div className="flex flex-col gap-2">
-      <span className="text-white">{title}</span>
-      <p className="flex gap-2 items-center text-[#f7f4e6] border-[1px] border-[#27272a] p-3 rounded-md">
+      <span className="text-gray-400 font-semibold">{title}</span>
+      <p className="flex gap-2 items-center text-white border-[1px] border-bd_primary p-3 rounded-md">
         {icon}
         {details}
       </p>

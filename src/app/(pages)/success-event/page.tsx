@@ -4,6 +4,14 @@ import EventsInformation from "@/app/shared/components/EventsInformation";
 import { KeyRound, Share2 } from "lucide-react";
 import Image from "next/image";
 
+const event_mock = {
+  name: "Evento do leandro",
+  date: "12/02/2025",
+  time: "17:08",
+  description: "Descrição do evento do Leandro",
+  location: "Local do Leandro",
+};
+
 const SuccessEvent = () => {
   return (
     <Container>
@@ -22,10 +30,10 @@ const SuccessEvent = () => {
             </div>
 
             <div>
-              <p className="text-[#c7c6c6] text-sm">
-                Seu evento foi adicionado
-              </p>
-              <h1 className="font-bold text-3xl text-white">Nome do evento</h1>
+              <p className="text-[#c7c6c6] text-sm">Seu evento foi criado:</p>
+              <h1 className="font-bold text-3xl text-white">
+                {event_mock.name}
+              </h1>
             </div>
           </div>
           <Image
@@ -39,15 +47,15 @@ const SuccessEvent = () => {
         <div className="flex flex-col gap-6 px-14 py-10">
           <div className="grid grid-cols-2 gap-2">
             <EventsInformation
-              description="12/02/2025 às 17:08:00"
+              description={`${event_mock.date} às ${event_mock.time}`}
               title="Data"
             />
             <EventsInformation
-              description="Descrição do evento"
+              description={event_mock.location}
               title="Local"
             />
             <EventsInformation
-              description="Descrição do evento"
+              description={event_mock.description}
               title="Local"
               className="col-span-2"
             />
@@ -73,7 +81,9 @@ const SuccessEvent = () => {
               />
             </div>
             <div className="flex flex-col gap-2 mt-7">
-              <span className=" text-xs text-[#9ba2ad]">Acessar via Mobile</span>
+              <span className=" text-xs text-[#9ba2ad]">
+                Acessar via Mobile
+              </span>
 
               <Image
                 alt="qr-code-event"
