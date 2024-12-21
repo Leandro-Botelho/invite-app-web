@@ -1,6 +1,6 @@
 "use client";
 
-import "../../core/configZod.ts";
+import "@/app/core/configZod";
 import Logo from "@/app/shared/components/Logo";
 import Container from "@/app/shared/components/Container";
 import AppCardCreateEvent from "./_components/CreateEventContainer";

@@ -8,9 +8,12 @@ const Container = ({ children, className }: PropsWithChildren<IContainer>) => {
   return (
     <main
       aria-label="Main content"
-      className={`grid place-items-center min-h-screen bg-background`}
+      className={`grid place-items-center min-h-screen bg-background  bg-cover bg-center`}
+      style={{
+        backgroundImage: `url('/background.png')`,
+      }}
     >
-      <div className={className}>{children}</div>
+      <div className={`w-full ${className}`}>{children}</div>
     </main>
   );
 };

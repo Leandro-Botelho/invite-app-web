@@ -1,7 +1,7 @@
 import BoxEventDetails from "@/app/shared/components/BoxEventDetails";
 import Container from "@/app/shared/components/Container";
 import EventsInformation from "@/app/shared/components/EventsInformation";
-import { KeyRound, Share2 } from "lucide-react";
+import { Share2 } from "lucide-react";
 import Image from "next/image";
 
 const event_mock = {
@@ -14,7 +14,7 @@ const event_mock = {
 
 const SuccessEvent = () => {
   return (
-    <Container>
+    <Container className="flex flex-col items-center gap-8 py-16">
       <section className="shadow-lg rounded-lg border-[#494a47] border-[1px]">
         <div className="flex justify-between px-6 py-5 border-[#494a47] border-b-[1px]">
           {/* background image das etapas irá preencher essa */}
@@ -71,13 +71,7 @@ const SuccessEvent = () => {
               <BoxEventDetails
                 details="https://www.google.com.br"
                 icon={<Share2 />}
-                title="Link administrador"
-              />
-              <BoxEventDetails
-                details="admin@123456"
-                icon={<KeyRound />}
-                title="Senha temporária"
-                message="Essa senha não será exibida novamente, salve-a em um local seguro."
+                title="Link do evento"
               />
             </div>
             <div className="flex flex-col gap-2 mt-7">

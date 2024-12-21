@@ -4,10 +4,10 @@ import AppCardDescription from "@/app/shared/components/AppCard/AppCardDescripti
 import AppCardHeader from "@/app/shared/components/AppCard/AppCardHeader";
 import AppCardTitle from "@/app/shared/components/AppCard/AppCardTitle";
 import Container from "@/app/shared/components/Container";
-import EventsInformation from "@/app/shared/components/EventsInformation";
 import Logo from "@/app/shared/components/Logo";
 import Image from "next/image";
 import FormGuest from "./_components/FormGuest";
+import EventDetailsContainer from "@/app/shared/components/EventDetailsContainer";
 
 const eventMock = {
   id: 1,
@@ -52,32 +52,14 @@ const InvitePage = () => {
         </AppCardHeader>
 
         <AppCardContent className="py-8 flex flex-col gap-8">
-          <section className=" flex flex-col gap-1">
-            <p
-              className={`border-[1px] rounded-md py-2 px-4 text-white font-bold text-xl shadow-md border-bd_primary`}
-            >
-              {eventMock.alias}:{" "}
-              <span className="text-[#c2bdc6] font-light">
-                {eventMock.nameEvent}
-              </span>
-            </p>
-
-            <div className="flex gap-1 items-center justify-between w-full">
-              <EventsInformation
-                description={`${eventMock.date} às ${eventMock.time}`}
-                title="Data"
-              />
-              <EventsInformation
-                description={eventMock.location}
-                title="Local"
-              />
-            </div>
-
-            <EventsInformation
-              description={eventMock.description}
-              title="Descrição"
-            />
-          </section>
+          <EventDetailsContainer
+            alias={eventMock.alias}
+            date={eventMock.date}
+            description={eventMock.description}
+            location={eventMock.location}
+            nameEvent={eventMock.nameEvent}
+            time={eventMock.time}
+          />
 
           <FormGuest />
         </AppCardContent>

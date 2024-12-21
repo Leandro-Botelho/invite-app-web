@@ -2,7 +2,7 @@ import { Control, Controller, FieldValues, Path } from "react-hook-form";
 import { Input } from "../shadcn-components/input";
 import { Label } from "../shadcn-components/label";
 
-interface IAppInput<T extends FieldValues> {
+export interface IAppInput<T extends FieldValues> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<T, any>;
   name: Path<T>;
@@ -12,6 +12,8 @@ interface IAppInput<T extends FieldValues> {
   type?: string;
   value?: string;
   maxLength?: number;
+  showLabel?: boolean;
+  icon?: React.ReactNode;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -23,6 +25,7 @@ const AppInput = <T extends FieldValues>({
   placeholder,
   type = "text",
   maxLength,
+  showLabel = true,
   onChange: onChangeEvent,
 }: IAppInput<T>) => {
   const preventOtherCharacters = (e: React.KeyboardEvent<HTMLInputElement>) =>
@@ -34,17 +37,19 @@ const AppInput = <T extends FieldValues>({
       control={control}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <div className="flex flex-col gap-2">
-          <Label
-            htmlFor="input"
-            className="flex flex-col text-white font-bold text-lg "
-          >
-            {label}
-            {description && (
-              <span className=" font-normal text-sm text-primary">
-                {description}
-              </span>
-            )}
-          </Label>
+          {showLabel && (
+            <Label
+              htmlFor="input"
+              className="flex flex-col text-white font-bold text-lg "
+            >
+              {label}
+              {description && (
+                <span className=" font-normal text-sm text-primary">
+                  {description}
+                </span>
+              )}
+            </Label>
+          )}
           <Input
             id="input"
             value={value ?? ""}

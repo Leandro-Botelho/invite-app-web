@@ -10,11 +10,11 @@ interface BoxEventProps {
 
 const BoxEvent = ({ url_image, nameEvent, description, id }: BoxEventProps) => {
   return (
-    <div className="bg-[#28272a]">
+    <div className="bg-[#28272a] rounded-md w-72">
       <div
         className={`relative border-b-1 border-bd_primary flex-row items-center gap-4 bg-cover bg-center h-20`}
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(${url_image})`,
+          backgroundImage: `url(${url_image})`,
         }}
       ></div>
 
@@ -23,7 +23,9 @@ const BoxEvent = ({ url_image, nameEvent, description, id }: BoxEventProps) => {
         <p className="text-primary">{description}</p>
       </div>
       <div className="flex justify-center gap-4 p-4">
-        <Button className="bg-[#e03246] hover:bg-[#a72333]">Admin</Button>
+        <Link href={`/admin/event-detail/${id}`}>
+          <Button className="bg-button hover:bg-btnHover">Detalhes</Button>
+        </Link>
         <Link href={`/admin/invite/${id}`}>
           <Button className="bg-[#23c55e] hover:bg-[#1c8843]">Convite</Button>
         </Link>

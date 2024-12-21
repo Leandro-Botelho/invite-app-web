@@ -4,7 +4,7 @@ import "@/app/core/configZod";
 import TabsConfirmed from "@/app/shared/components/Tabs";
 import { IFormGuest, useFormGuest } from "../../_hooks/useFormGuest";
 import AppInput from "@/app/shared/components/AppInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/app/shared/components/shadcn-components/button";
 
 const FormGuest = () => {
@@ -24,6 +24,10 @@ const FormGuest = () => {
     console.log(formData);
   };
 
+  useEffect(() => {
+    if (presenceConfirmed === "no") setHasCompanion("no");
+  }, [presenceConfirmed, hasCompanion]);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
       <h3 className="text-gray-400 font-bold border-b-1 pb-1">
@@ -42,6 +46,7 @@ const FormGuest = () => {
 
         <TabsConfirmed
           label="Possui acompanhantes?"
+          disabled={presenceConfirmed === "no"}
           activeTab={hasCompanion}
           setActiveTab={(tab) => setHasCompanion(tab)}
           tabs={["yes", "no"]}

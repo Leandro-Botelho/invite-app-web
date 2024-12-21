@@ -6,16 +6,22 @@ import { z } from "zod";
 export const guestSchema = z.object({
   email: z.string().email(),
   name: z.string(),
-//   hasCompanion: z.boolean(),
-//   presenceConfirmed: z.boolean(),
+  hasCompanion: z.string(),
+  presenceConfirmed: z.string(),
 });
 
 export type IFormGuest = z.infer<typeof guestSchema>;
 
 export const useFormGuest = () => {
-  const { control, handleSubmit } = useForm<IFormGuest>({
+  const { control, handleSubmit, watch, setValue } = useForm<IFormGuest>({
     resolver: zodResolver(guestSchema),
+    defaultValues: {
+      email: "",
+      name: "",
+      hasCompanion: "yes",
+      presenceConfirmed: "yes",
+    },
   });
 
-  return { control, handleSubmit };
+  return { control, watch, setValue, handleSubmit };
 };
